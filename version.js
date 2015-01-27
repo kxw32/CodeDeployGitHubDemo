@@ -1,1 +1,1 @@
-i{"text":"V2","color":"0099cc"}
+{"text":"V2","color":"0099cc"}
