@@ -22,12 +22,39 @@
       font-weight: normal;
       margin-bottom: 0;
     }
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      overflow: auto;
+    }
+    html, body {
+      height: 100%;
+      font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    }
+    table {
+      border-spacing: 10px;
+    }
+    th {
+      font-size: 2em;
+      height: 2em;
+    }
+    td {
+      font-size: 4em;
+      font-weight: bold;
+      text-align: center;
+      color: #ffffff;
+    }
+    td.divider {
+      width: 20px;
+    }
   </style>
 </head>
 <body>
-  <div align="center">
+  
+    <div align="center">
     <h1>Congratulations</h1>
-    <h2>This application was deployed using AWS CodeDeploy.This is version 3!!</h2>
+    <h2>This application was deployed using AWS CodeDeploy.This is version default!!</h2>
     <p>For next steps, read the <a href="http://aws.amazon.com/documentation/codedeploy">AWS CodeDeploy Documentation</a>.</p>
   </div>
 </body>
