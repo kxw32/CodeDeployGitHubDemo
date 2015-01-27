@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      overflow: auto;
+    }
+    html, body {
+      height: 100%;
+      font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    }
+    table {
+      border-spacing: 10px;
+    }
+    th {
+      font-size: 2em;
+      height: 2em;
+    }
+    td {
+      font-size: 4em;
+      font-weight: bold;
+      text-align: center;
+      color: #ffffff;
+    }
+    td.divider {
+      width: 20px;
+    }
+  </style>
+</head>
+<body>
+  <table width="100%" height="100%">
+    <tr>
+      <th colspan="2">
+        Availability Zone 1
+      </th>
+      <td class="divider">
+      </td>
+      <th colspan="2">
+        Availability Zone 2
+      </th>
+      <td class="divider">
+      </td>
+      <th colspan="2">
+        Availability Zone 3
+      </th>
+    </tr>
+    <tr>
+      <td class="az0">
+      </td>
+      <td class="az0">
+      </td>
+      <td class="divider">
+      </td>
+      <td class="az1">
+      </td>
+      <td class="az1">
+      </td>
+      <td class="divider">
+      </td>
+      <td class="az2">
+      </td>
+      <td class="az2">
+      </td>
+    </tr>
+    <tr>
+      <td class="az0">
+      </td>
+      <td class="az0">
+      </td>
+      <td class="divider">
+      </td>
+      <td class="az1">
+      </td>
+      <td class="az1">
+      </td>
+      <td class="divider">
+      </td>
+      <td class="az2">
+      </td>
+      <td class="az2">
+      </td>
+    </tr>
+    <tr>
+      <td class="az0">
+      </td>
+      <td class="az0">
+      </td>
+      <td class="divider">
+      </td>
+      <td class="az1">
+      </td>
+      <td class="az1">
+      </td>
+      <td class="divider">
+      </td>
+      <td class="az2">
+      </td>
+      <td class="az2">
+      </td>
+    </tr>
+  </table>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <!--
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  -->
+  <script>
+    $(function() {
+      var instances = [[
+        "54.173.38.178", 
+        "54.174.120.12"
+      ], [
+        "12.34.56.78", 
+        "12.34.56.78", 
+        "12.34.56.78", 
+        "12.34.56.78", 
+        "12.34.56.78", 
+        "12.34.56.78"
+      ], [
+        "12.34.56.78", 
+        "12.34.56.78", 
+        "12.34.56.78", 
+        "12.34.56.78", 
+        "12.34.56.78", 
+        "12.34.56.78"
+      ]];
+
+      window.setInterval(function() {
+        for (var az = 0; az < 3; az++) {
+          $.each($('.az' + az), function(index, element) {
+            var elem = $(element);
+            $.getJSON('http://' + instances[az][index] + '/version.js', function(data) {
+              elem.css('background-color', '#' + data.color)
+              elem.html(data.text);
+            });
+          });
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
