@@ -125,7 +125,7 @@
           $.each($('.az' + az), function(index, element) {
             var elem = $(element);
             $.getJSON('http://' + instances[az][index] + '/version.js', function(data) {
-              elem.css('background-color', '#' + data.color)
+              elem.css('background-color', '#' + data.color);
               elem.html(data.text);
             });
           });
